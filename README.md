@@ -3,7 +3,7 @@
 ## Description
 
 - Nginx
-- PHP7.1-fpm + MongoDB Extension + Imap + others
+- PHP7.2-fpm + mysql + MongoDB Extension + Imap + others
 - MongoDB
 - Ufw for 22, 80, 443
 - Composer
@@ -17,7 +17,7 @@ Deprecated
 ## Installation Digital Ocean
 Run this on fresh Ubuntu 16.04 Droplet
 ```
-bash <(curl -f -L -sS https://raw.githubusercontent.com/pashakopot/ubuntu-dev-env/master/run.sh)
+bash <(curl -f -L -sS https://raw.githubusercontent.com/fynduck/ubuntu-server/master/run.sh)
 ```
 
 ## Installation Vagrant
