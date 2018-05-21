@@ -93,13 +93,12 @@ sudo ufw allow 80
 sudo ufw allow 443
 
 ###############
-### LARAVEL ###
+### JUSTIVA ###
 ###############
-
-cd /webroot/justiva
-sudo git clone git@bitbucket.org:justivaru/justiva.ru.git .
 cd /webroot
 mkdir justiva
+cd /webroot/justiva
+sudo git clone git@bitbucket.org:justivaru/justiva.ru.git .
 cd justiva
 sudo chown -R www-data:www-data justiva
 sudo chmod -R 777 justiva
