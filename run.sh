@@ -97,6 +97,7 @@ sudo ufw allow 443
 ###############
 cd /webroot
 mkdir justiva
+sudo chmod 777 justiva
 cd /webroot/justiva
 sudo git clone git@bitbucket.org:justivaru/justiva.ru.git .
 cd justiva
