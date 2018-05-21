@@ -108,6 +108,7 @@ sudo chmod -R 777 storage
 sudo chmod -R 777 bootstrap
 cp .env.example .env
 php artisan key:generate
+composer install
 
 #sudo composer global require "laravel/installer"
 #cd /webroot
