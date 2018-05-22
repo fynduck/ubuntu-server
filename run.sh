@@ -78,7 +78,7 @@ dpkg-reconfigure -f noninteractive tzdata
 
 echo "mysql-server-5.7 mysql-server/root_password password 8y4DpK9jVj" | sudo debconf-set-selections
 echo "mysql-server-5.7 mysql-server/root_password_again password 8y4DpK9jVj" | sudo debconf-set-selections
-apt-get -y install mysql-server-5.7
+sudo apt-get -y install mysql-server-5.7
 
 # Run the MySQL Secure Installation wizard
 mysql_secure_installation
@@ -208,7 +208,7 @@ sudo apt-get update
 sudo apt-get install -y nodejs
 sudo apt-get install -y npm
 
-sudo apt-get install htop
+sudo apt-get -y install zsh htop
 
 ######################
 ### СЖАТИЕ ШАКАЛОВ ###
