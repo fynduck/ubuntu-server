@@ -72,7 +72,23 @@ sudo service php7.2-fpm restart
 ###############
 #### MYSQL ####
 ###############
-sudo apt-get install mysql
+apt-get update && apt-get upgrade -y
+echo "Europe/Moscow" > /etc/timezone
+dpkg-reconfigure -f noninteractive tzdata
+
+echo "mysql-server-5.7 mysql-server/root_password password 8y4DpK9jVj" | sudo debconf-set-selections
+echo "mysql-server-5.7 mysql-server/root_password_again password 8y4DpK9jVj" | sudo debconf-set-selections
+apt-get -y install mysql-server-5.7
+
+# Run the MySQL Secure Installation wizard
+mysql_secure_installation
+
+sed -i 's/127\.0\.0\.1/0\.0\.0\.0/g' /etc/mysql/my.cnf
+mysql -uroot -p -e 'USE mysql; UPDATE `user` SET `Host`="%" WHERE `User`="root" AND `Host`="localhost"; DELETE FROM `user` WHERE `Host` != "%" AND `User`="root"; FLUSH PRIVILEGES;'
+
+service mysql restart
+
+#sudo apt-get install mysql
 
 ################
 ### COMPOSER ###
@@ -188,11 +204,11 @@ sudo service nginx start
 ### NODEJS & NPM ###
 ####################
 
-# sudo apt-get update
-# sudo apt-get install -y nodejs
-# sudo apt-get install -y npm
+sudo apt-get update
+sudo apt-get install -y nodejs
+sudo apt-get install -y npm
 
-# sudo apt-get install htop
+sudo apt-get install htop
 
 ######################
 ### СЖАТИЕ ШАКАЛОВ ###

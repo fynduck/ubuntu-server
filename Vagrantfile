@@ -49,7 +49,7 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.synced_folder '.', '/vagrant', disabled: true
-  config.vm.synced_folder ".", "/webroot/laravel", type: "nfs" #, owner: "www-data", group: "www-data"
+  config.vm.synced_folder ".", "/webroot/justiva", type: "nfs" #, owner: "www-data", group: "www-data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
