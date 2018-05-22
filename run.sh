@@ -69,26 +69,26 @@ sudo apt-get install -y php7.2-fpm php7.2-mysql php7.2-mongodb php7.2-zip php7.2
 rm /etc/php/7.2/fpm/conf.d/10-opcache.ini
 sudo service php7.2-fpm restart
 
-###############
-#### MYSQL ####
-###############
-apt-get update && apt-get upgrade -y
-echo "Europe/Moscow" > /etc/timezone
-dpkg-reconfigure -f noninteractive tzdata
+###############################################################################
+# Install MySQL Server 5.7 on Ubuntu 16.04 LTS
+###############################################################################
 
-echo "mysql-server-5.7 mysql-server/root_password password 8y4DpK9jVj" | sudo debconf-set-selections
-echo "mysql-server-5.7 mysql-server/root_password_again password 8y4DpK9jVj" | sudo debconf-set-selections
-sudo apt-get -y install mysql-server-5.7
+# Download and Install the Latest Updates for the OS
+sudo apt update && apt upgrade -y
 
-# Run the MySQL Secure Installation wizard
-mysql_secure_installation
+# Install MySQL Server in a Non-Interactive mode. Default root password will be "root"
+echo "mysql-server-5.7 mysql-server/root_password password root" | sudo debconf-set-selections
+echo "mysql-server-5.7 mysql-server/root_password_again password root" | sudo debconf-set-selections
+sudo apt install mysql-server -y
 
-sed -i 's/127\.0\.0\.1/0\.0\.0\.0/g' /etc/mysql/my.cnf
-mysql -uroot -p -e 'USE mysql; UPDATE `user` SET `Host`="%" WHERE `User`="root" AND `Host`="localhost"; DELETE FROM `user` WHERE `Host` != "%" AND `User`="root"; FLUSH PRIVILEGES;'
+# Change MySQL Listening IP Address from local 127.0.0.1 to All IPs 0.0.0.0
+sed -i 's/127\.0\.0\.1/0\.0\.0\.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
 
+# Update mysql Table root record to accept incoming remote connections
+mysql -uroot -proot -e 'USE mysql; UPDATE `user` SET `Host`="%" WHERE `User`="root" AND `Host`="localhost"; DELETE FROM `user` WHERE `Host` != "%" AND `User`="root"; FLUSH PRIVILEGES;'
+
+# Restart MySQL Service
 service mysql restart
-
-#sudo apt-get install mysql
 
 ################
 ### COMPOSER ###
