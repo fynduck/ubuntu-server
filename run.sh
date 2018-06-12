@@ -42,7 +42,7 @@ sudo chmod 644 /etc/nginx/.htpasswd
 
 sudo cp /etc/nginx/nginx.conf /etc/nginx/nginxOld.conf
 sudo rm -rf /etc/nginx/nginx.conf
-sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/pashakopot/ubuntu-dev-env/master/nginx.conf
+sudo wget -O /etc/nginx/nginx.conf https://raw.githubusercontent.com/fynduck/ubuntu-server/master/nginx.conf
 
 cd /
 sudo mkdir webroot
