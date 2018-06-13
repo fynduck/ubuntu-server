@@ -173,7 +173,7 @@ sudo service nginx start
 # sudo make test
 # sudo make install
 # sudo mkdir /etc/redis
-# sudo wget -O /etc/redis/redis.conf https://raw.githubusercontent.com/pashakopot/ubuntu-dev-env/master/redis.conf
+# sudo wget -O /etc/redis/redis.conf https://raw.githubusercontent.com/fynduck/ubuntu-server/master/redis.conf
 
 # sudo cat> /etc/systemd/system/redis.service <<EOL
 # [Unit]
