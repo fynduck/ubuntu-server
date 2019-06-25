@@ -31,7 +31,7 @@ sudo update-locale LANG=ru_RU.UTF-8
 
 echo "Locale installed!"
 
-if [[ $1 == 'nginx' ]]; then
+if [[ $1 == true ]]; then
     echo "Nginx install..."
     #############
     ### NGINX ###
@@ -43,7 +43,7 @@ if [[ $1 == 'nginx' ]]; then
     echo "Nginx installed!"
 fi
 
-if [[ $2 == 'php' ]]; then
+if [[ $2 == true ]]; then
     echo "Php install..."
 
     ###############
@@ -114,7 +114,7 @@ if [[ $3 == 'mongo' ]]; then
     sudo service mongod start
 fi
 
-if [[ $4 == 'composer' ]]; then
+if [[ $4 == true ]]; then
     echo "Composer install..."
 
     ################
@@ -126,7 +126,7 @@ if [[ $4 == 'composer' ]]; then
     echo "Composer installed..."
 fi
 
-if [[ $5 == 'nodejs' ]]; then
+if [[ $5 == true ]]; then
     echo "NODEJS & NPM install..."
 
     ####################
