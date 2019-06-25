@@ -53,7 +53,7 @@ if [[ $2 == true ]]; then
     sudo apt-get update
     sudo apt-get install -y php7.2-fpm php7.2-mysql php7.2-zip php7.2-xml php7.2-mbstring php7.2-curl php7.2-imap
     rm /etc/php/7.2/fpm/conf.d/10-opcache.ini
-    sudo apt install php7.0-pgsql
+    sudo apt install php7.2-pgsql
     sudo service php7.2-fpm restart
 
     echo "Php installed!"
