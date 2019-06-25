@@ -31,7 +31,7 @@ sudo update-locale LANG=ru_RU.UTF-8
 
 echo "Locale installed!"
 
-if [[ $1 == true ]]; then
+if [[ $1 == 'nginx' ]]; then
     echo "Nginx install..."
     #############
     ### NGINX ###
@@ -43,23 +43,7 @@ if [[ $1 == true ]]; then
     echo "Nginx installed!"
 fi
 
-#cd /
-#sudo mkdir webroot
-#sudo chmod 777 webroot
-
-
-###############
-### MONGODB ###
-###############
-
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
-sudo apt-get update
-sudo apt-get install -y mongodb-org
-sudo systemctl enable mongod.service
-sudo service mongod start
-
-if [[ $2 == true ]]; then
+if [[ $2 == 'php' ]]; then
     echo "Php install..."
 
     ###############
@@ -117,7 +101,20 @@ if [[ $3 == 'postgres' ]]; then
     echo "POSTGRES installed!"
 fi
 
-if [[ $4 == true ]]; then
+if [[ $3 == 'mongo' ]]; then
+    ###############
+    ### MONGODB ###
+    ###############
+
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
+    echo "deb [ arch=amd64,arm64 ] http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    sudo apt-get update
+    sudo apt-get install -y mongodb-org
+    sudo systemctl enable mongod.service
+    sudo service mongod start
+fi
+
+if [[ $4 == 'composer' ]]; then
     echo "Composer install..."
 
     ################
@@ -129,7 +126,7 @@ if [[ $4 == true ]]; then
     echo "Composer installed..."
 fi
 
-if [[ $5 == true ]]; then
+if [[ $5 == 'nodejs' ]]; then
     echo "NODEJS & NPM install..."
 
     ####################
@@ -145,8 +142,7 @@ if [[ $5 == true ]]; then
     echo "NODEJS & NPM installed!"
 fi
 
-
-if [[ $6 == true ]]; then
+if [[ $6 == 'ufw' ]]; then
     echo "UFW install..."
 
     ###########
@@ -165,7 +161,7 @@ if [[ $6 == true ]]; then
 
 fi
 
-if [[ $1 == true ]]; then
+if [[ $1 == 'nginx' ]]; then
     sudo service nginx start
 fi
 
